@@ -144,7 +144,7 @@ For deeper design rationale, see `TECHNICAL_NOTES.md`.
 
 本项目是一个面向德语→英语议会语料的端到端 NMT 流水线，覆盖：数据加载与预处理、模型训练、推理与评估、注意力诊断、解码策略搜索，并提供单句级可视化诊断能力。
 
-## 亮点
+## 要点
 
 - 配置驱动的训练、评估与诊断流程
 - 单句诊断：cross-attention 热力图 + 低覆盖 token 高亮 + 自动标签
