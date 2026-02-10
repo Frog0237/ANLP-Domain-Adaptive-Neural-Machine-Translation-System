@@ -1,0 +1,42 @@
+# Training Configuration
+# =====================
+# MarianMT encoder-decoder Transformer trained from random initialization
+# on Europarl DE→EN parallel corpus.
+# 说明：该配置用于从零训练 MarianMT。
+
+model:
+  base_model: "Helsinki-NLP/opus-mt-de-en"   # Architecture & tokenizer source
+  from_pretrained: false                      # Train from scratch (random init)
+  # use_alibi: true                           # Enable ALiBi (Marian only)
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  # Optional task prefix (leave empty for MarianMT-style models).
+  # source_prefix: "translate German to English: "
+  splits:
+    train: "train"           # Short sentences (length < 10)
+    validation: "validation" # i.i.d. validation (length < 10)
+    gen_val: "gen_val"       # o.o.d. validation (length 10-20)
+
+training:
+  num_epochs: 5
+  batch_size: 128
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  fp16: true                  # Mixed precision training
+  fp16_full_eval: true
+  group_by_length: true       # Dynamic batching: group by sequence length
+  auto_find_batch_size: true  # Auto-adjust if OOM
+  logging_steps: 20
+  eval_steps: 500
+  save_steps: 500
+  save_total_limit: 1
+  generation_max_length: 20
+  seed: 42
+
+output:
+  model_dir: "outputs/my-de-en-nmt"
+  log_dir: "outputs/logs"
+

@@ -1,0 +1,40 @@
+# Relative Position Encoding Configuration (T5)
+# =============================================
+# T5 uses learned relative position bias instead of absolute positional embeddings.
+# 说明：该配置用于训练相对位置编码的 T5 基线。
+
+model:
+  base_model: "t5-small"
+  from_pretrained: true
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  # T5 expects a task prefix to specify translation direction.
+  source_prefix: "translate German to English: "
+  splits:
+    train: "train"
+    validation: "validation"
+    gen_val: "gen_val"
+
+training:
+  num_epochs: 3
+  batch_size: 64
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  fp16: true
+  fp16_full_eval: true
+  group_by_length: true
+  auto_find_batch_size: true
+  logging_steps: 20
+  eval_steps: 500
+  save_steps: 500
+  save_total_limit: 1
+  generation_max_length: 40
+  seed: 42
+
+output:
+  model_dir: "outputs/relative-t5-de-en"
+  log_dir: "outputs/logs"
+

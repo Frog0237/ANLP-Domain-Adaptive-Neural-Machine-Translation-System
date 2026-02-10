@@ -1,0 +1,41 @@
+# ALiBi Configuration (MarianMT)
+# ===============================
+# Replaces sinusoidal position embeddings with ALiBi bias.
+# 说明：该配置用于 Marian 的 ALiBi 实验。
+
+model:
+  base_model: "Helsinki-NLP/opus-mt-de-en"
+  from_pretrained: false
+  use_alibi: true
+  alibi_on_encoder: true
+  alibi_on_decoder: true
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  splits:
+    train: "train"
+    validation: "validation"
+    gen_val: "gen_val"
+
+training:
+  num_epochs: 5
+  batch_size: 128
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  fp16: true
+  fp16_full_eval: true
+  group_by_length: true
+  auto_find_batch_size: true
+  logging_steps: 20
+  eval_steps: 500
+  save_steps: 500
+  save_total_limit: 1
+  generation_max_length: 20
+  seed: 42
+
+output:
+  model_dir: "outputs/alibi-marian-de-en"
+  log_dir: "outputs/logs"
+

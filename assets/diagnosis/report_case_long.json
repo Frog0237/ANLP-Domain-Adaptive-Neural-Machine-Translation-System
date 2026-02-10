@@ -1,0 +1,110 @@
+{
+  "case_id": "case_long",
+  "model_path": "Helsinki-NLP/opus-mt-de-en",
+  "source": "Trotz der schwierigen Verhandlungen stimmte das Parlament dem Abkommen mit großer Mehrheit zu.",
+  "prediction": "Despite the difficult negotiations, Parliament approved the agreement by a large majority.",
+  "reference": "Despite the difficult negotiations, Parliament approved the agreement by a large majority.",
+  "tokens": {
+    "source": [
+      "Trotz",
+      "der",
+      "schwierigen",
+      "Verhandlungen",
+      "stimmt",
+      "e",
+      "das",
+      "Parlament",
+      "dem",
+      "Abkommen",
+      "mit",
+      "großer",
+      "Mehrheit",
+      "zu",
+      "."
+    ],
+    "target": [
+      "Despite",
+      "the",
+      "difficult",
+      "negotiations",
+      ",",
+      "Parliament",
+      "approved",
+      "the",
+      "agreement",
+      "by",
+      "a",
+      "large",
+      "majority",
+      "."
+    ],
+    "low_coverage_source": [
+      {
+        "token": "Trotz",
+        "coverage": 0.07603361457586288
+      },
+      {
+        "token": "der",
+        "coverage": 0.022093484178185463
+      },
+      {
+        "token": "schwierigen",
+        "coverage": 0.037866827100515366
+      },
+      {
+        "token": "Verhandlungen",
+        "coverage": 0.053455036133527756
+      },
+      {
+        "token": "stimmt",
+        "coverage": 0.058127887547016144
+      },
+      {
+        "token": "e",
+        "coverage": 0.03735019266605377
+      },
+      {
+        "token": "das",
+        "coverage": 0.04706054925918579
+      },
+      {
+        "token": "Parlament",
+        "coverage": 0.060761459171772
+      },
+      {
+        "token": "dem",
+        "coverage": 0.04955067113041878
+      },
+      {
+        "token": "mit",
+        "coverage": 0.17020386457443237
+      },
+      {
+        "token": "Mehrheit",
+        "coverage": 0.13006192445755005
+      },
+      {
+        "token": "zu",
+        "coverage": 0.014001576229929924
+      },
+      {
+        "token": ".",
+        "coverage": 0.15622857213020325
+      }
+    ],
+    "highlighted_source": "[Trotz] [der] [schwierigen] [Verhandlungen] [stimmt] [e] [das] [Parlament] [dem] Abkommen [mit] großer [Mehrheit] [zu] [.]"
+  },
+  "metrics": {
+    "low_coverage_fraction": 0.8667,
+    "length_ratio": 1.0,
+    "bigram_repetition": 0.0
+  },
+  "auto_label": "omission",
+  "auto_reason": "Many source tokens have low attention coverage.",
+  "artifacts": {
+    "heatmap": "assets/diagnosis\\heatmap_case_long.png",
+    "report_json": "assets/diagnosis\\report_case_long.json",
+    "report_md": "assets/diagnosis\\report_case_long.md"
+  },
+  "notes": "Auto labels are heuristic and for quick triage only."
+}

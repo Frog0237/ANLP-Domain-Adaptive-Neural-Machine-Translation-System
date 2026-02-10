@@ -1,0 +1,41 @@
+# Fine-tuning Configuration
+# =========================
+# Starts from pretrained MarianMT weights and adapts to Europarl DE→EN.
+# 说明：该配置用于在预训练 MarianMT 上进行领域微调。
+
+model:
+  base_model: "Helsinki-NLP/opus-mt-de-en"
+  from_pretrained: true
+  # use_alibi: true  # Enable ALiBi (Marian only)
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  # Optional task prefix (leave empty for MarianMT-style models).
+  # source_prefix: "translate German to English: "
+  splits:
+    train: "train"
+    validation: "validation"
+    gen_val: "gen_val"
+
+training:
+  num_epochs: 3
+  batch_size: 128
+  learning_rate: 3.0e-5
+  weight_decay: 0.01
+  fp16: true
+  fp16_full_eval: true
+  group_by_length: true
+  auto_find_batch_size: true
+  logging_steps: 20
+  eval_steps: 500
+  save_steps: 500
+  save_total_limit: 1
+  generation_max_length: 20
+  seed: 42
+
+output:
+  model_dir: "outputs/finetuned-de-en"
+  log_dir: "outputs/logs"
+

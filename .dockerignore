@@ -1,0 +1,13 @@
+# Keep local artifacts and caches out of the build context.
+
+.git
+.idea
+.venv
+__pycache__
+outputs
+dist
+build
+*.pt
+*.bin
+*.egg-info
+*.pyc

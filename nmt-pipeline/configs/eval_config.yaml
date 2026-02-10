@@ -1,0 +1,59 @@
+# Evaluation Configuration
+# ========================
+# 说明：该配置用于多模型、多分割的统一评估。
+
+# Each model can optionally override source_prefix (for T5-style models).
+models:
+  my_model:
+    path: "outputs/my-de-en-nmt"
+    label: "Our Model"
+  finetuned:
+    path: "outputs/finetuned-de-en"
+    label: "Fine-tuned MarianMT"
+  # Remove this entry if you do not train the ALiBi model.
+  alibi:
+    path: "outputs/alibi-marian-de-en"
+    label: "Marian + ALiBi"
+  # Remove this entry if you do not train the relative-position model.
+  relative_t5:
+    path: "outputs/relative-t5-de-en"
+    label: "Relative-Position T5"
+    source_prefix: "translate German to English: "
+  pretrained:
+    path: "Helsinki-NLP/opus-mt-de-en"
+    label: "Pretrained MarianMT"
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  splits:
+    iid: "validation"
+    ood: "gen_val"
+
+inference:
+  batch_size: 128
+  max_length: 20
+  num_beams: 4
+  early_stopping: true
+
+metrics:
+  - bleu
+  - chrf
+  - length_ratio
+  - bigram_repetition
+  - bertscore  # Optional semantic metric (slower)
+
+metric_kwargs:
+  # BERTScore downloads a pretrained model on first use.
+  bertscore:
+    lang: "en"
+    model_type: "roberta-large"
+    batch_size: 32
+    rescale_with_baseline: true
+
+output:
+  results_dir: "outputs/eval_results"
+  save_translations: true
+  save_metrics_table: true
+

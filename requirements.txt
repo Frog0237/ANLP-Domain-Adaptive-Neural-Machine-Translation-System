@@ -1,0 +1,15 @@
+# Core runtime dependencies
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+sacrebleu>=2.3.0
+evaluate>=0.4.0
+sacremoses>=0.0.53
+bert-score>=0.3.13
+sentencepiece>=0.1.99
+numpy>=1.24.0
+matplotlib>=3.7.0
+pandas>=2.0.0
+pyyaml>=6.0
+tqdm>=4.65.0
+seaborn>=0.12.0

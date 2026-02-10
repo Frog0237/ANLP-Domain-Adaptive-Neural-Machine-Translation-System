@@ -1,0 +1,41 @@
+# Decoding Strategy Grid Search Configuration
+# =============================================
+# 说明：该配置用于搜索不同解码参数组合。
+
+model_path: "outputs/my-de-en-nmt"
+
+data:
+  dataset_name: "EdinburghNLP/europarl-de-en-mini"
+  source_lang: "de"
+  target_lang: "en"
+  # Optional task prefix (use for T5-style models).
+  # source_prefix: "translate German to English: "
+
+search_space:
+  beam_sizes: [1, 4, 6]
+  length_penalties: [1.0, 2.5]
+  max_length: 20
+
+splits:
+  - "validation"   # i.i.d.
+  - "gen_val"      # o.o.d.
+
+metrics:
+  - bleu
+  - chrf
+  - length_ratio
+  - bigram_repetition
+  - bertscore  # Optional semantic metric (slower)
+
+metric_kwargs:
+  # BERTScore downloads a pretrained model on first use.
+  bertscore:
+    lang: "en"
+    model_type: "roberta-large"
+    batch_size: 32
+    rescale_with_baseline: true
+
+output:
+  results_dir: "outputs/decode_search"
+  save_csv: true
+

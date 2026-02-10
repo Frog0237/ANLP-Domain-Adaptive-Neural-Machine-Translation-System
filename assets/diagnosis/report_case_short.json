@@ -1,0 +1,73 @@
+{
+  "case_id": "case_short",
+  "model_path": "Helsinki-NLP/opus-mt-de-en",
+  "source": "Wir danken dem Ausschuss für seine Arbeit.",
+  "prediction": "We thank the committee for its work.",
+  "reference": "We thank the committee for its work.",
+  "tokens": {
+    "source": [
+      "Wir",
+      "danken",
+      "dem",
+      "Ausschuss",
+      "für",
+      "seine",
+      "Arbeit",
+      "."
+    ],
+    "target": [
+      "We",
+      "thank",
+      "the",
+      "committee",
+      "for",
+      "its",
+      "work",
+      "."
+    ],
+    "low_coverage_source": [
+      {
+        "token": "Wir",
+        "coverage": 0.04788907617330551
+      },
+      {
+        "token": "danken",
+        "coverage": 0.07317367941141129
+      },
+      {
+        "token": "dem",
+        "coverage": 0.03167297691106796
+      },
+      {
+        "token": "für",
+        "coverage": 0.06487905979156494
+      },
+      {
+        "token": "seine",
+        "coverage": 0.10840172320604324
+      },
+      {
+        "token": "Arbeit",
+        "coverage": 0.0982918068766594
+      },
+      {
+        "token": ".",
+        "coverage": 0.12923750281333923
+      }
+    ],
+    "highlighted_source": "[Wir] [danken] [dem] Ausschuss [für] [seine] [Arbeit] [.]"
+  },
+  "metrics": {
+    "low_coverage_fraction": 0.875,
+    "length_ratio": 1.0,
+    "bigram_repetition": 0.0
+  },
+  "auto_label": "omission",
+  "auto_reason": "Many source tokens have low attention coverage.",
+  "artifacts": {
+    "heatmap": "assets/diagnosis\\heatmap_case_short.png",
+    "report_json": "assets/diagnosis\\report_case_short.json",
+    "report_md": "assets/diagnosis\\report_case_short.md"
+  },
+  "notes": "Auto labels are heuristic and for quick triage only."
+}

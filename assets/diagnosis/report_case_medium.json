@@ -1,0 +1,82 @@
+{
+  "case_id": "case_medium",
+  "model_path": "Helsinki-NLP/opus-mt-de-en",
+  "source": "Die Präsidentin erklärte, dass die Debatte morgen fortgesetzt wird.",
+  "prediction": "The President said that the debate will continue tomorrow.",
+  "reference": "The President stated that the debate will continue tomorrow.",
+  "tokens": {
+    "source": [
+      "Die",
+      "Präsidentin",
+      "erklärte",
+      ",",
+      "dass",
+      "die",
+      "Debatte",
+      "morgen",
+      "fortgesetzt",
+      "wird",
+      "."
+    ],
+    "target": [
+      "The",
+      "President",
+      "said",
+      "that",
+      "the",
+      "debate",
+      "will",
+      "continue",
+      "tomorrow",
+      "."
+    ],
+    "low_coverage_source": [
+      {
+        "token": "Die",
+        "coverage": 0.008624467998743057
+      },
+      {
+        "token": "Präsidentin",
+        "coverage": 0.022680114954710007
+      },
+      {
+        "token": "erklärte",
+        "coverage": 0.01864425651729107
+      },
+      {
+        "token": ",",
+        "coverage": 0.045472510159015656
+      },
+      {
+        "token": "dass",
+        "coverage": 0.02921762876212597
+      },
+      {
+        "token": "die",
+        "coverage": 0.06919167190790176
+      },
+      {
+        "token": "wird",
+        "coverage": 0.14869974553585052
+      },
+      {
+        "token": ".",
+        "coverage": 0.11616223305463791
+      }
+    ],
+    "highlighted_source": "[Die] [Präsidentin] [erklärte] [,] [dass] [die] Debatte morgen fortgesetzt [wird] [.]"
+  },
+  "metrics": {
+    "low_coverage_fraction": 0.7273,
+    "length_ratio": 1.0,
+    "bigram_repetition": 0.0
+  },
+  "auto_label": "omission",
+  "auto_reason": "Many source tokens have low attention coverage.",
+  "artifacts": {
+    "heatmap": "assets/diagnosis\\heatmap_case_medium.png",
+    "report_json": "assets/diagnosis\\report_case_medium.json",
+    "report_md": "assets/diagnosis\\report_case_medium.md"
+  },
+  "notes": "Auto labels are heuristic and for quick triage only."
+}

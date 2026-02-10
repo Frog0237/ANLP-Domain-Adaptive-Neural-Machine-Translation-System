@@ -1,0 +1,19 @@
+# Python caches and build artifacts
+__pycache__/
+*.pyc
+*.pyo
+# Model outputs and experiment artifacts
+outputs/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.pt
+*.bin
+wandb/
+# Local env files
+.env
+.venv/
+
+.idea/
+
