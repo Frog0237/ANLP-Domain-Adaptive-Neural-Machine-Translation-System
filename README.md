@@ -223,7 +223,6 @@ python -m unittest discover -s tests
 ├── assets/diagnosis/                # 热力图与单句报告
 ├── Dockerfile
 ├── requirements.txt
-├── TECHNICAL_NOTES.md
 └── README.md
 ```
 
